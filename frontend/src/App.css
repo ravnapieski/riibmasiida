@@ -23,7 +23,12 @@ html {
 body {
   background-color: var(--colorBg);
   color: var(--colorPrimary);
+  font-family: 'Nunito', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
+/* font-weight: Use a value from 200 to 1000 */
+
 .app-container {
   min-height: 100vh;
   display: flex;
