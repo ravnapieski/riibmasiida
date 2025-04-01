@@ -46,12 +46,14 @@ function App() {
                 <h2 className='category-title'>stohpu {category}.</h2>
                 <ul className='rhymes-list'>
                   {rhymesByCategory[category].map((rhyme, index) => (
-                    <li
-                      key={index}
-                      className='rhyme-item'
-                      /*style={{ backgroundColor: getBackgroundColor(category) }}*/
-                    >
-                      {rhyme}
+                    <li key={index} className='rhyme-item'>
+                      <a
+                        href={`https://satni.org/${encodeURIComponent(rhyme)}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        {rhyme}
+                      </a>
                     </li>
                   ))}
                 </ul>

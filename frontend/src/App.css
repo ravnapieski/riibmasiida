@@ -108,3 +108,8 @@ ul {
   transform: scale(1.2);
   color: var(--colorBg);
 }
+
+.rhyme-item a {
+  color: inherit;
+  text-decoration: none;
+}
