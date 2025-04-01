@@ -1,7 +1,7 @@
 # dependencies
-/node_modules
-frontend/node_modules/.cache/
-/.pnp
+node_modules/
+**/.cache/
+.pnp
 .pnp.js
 
 # testing
@@ -12,6 +12,8 @@ frontend/node_modules/.cache/
 
 # misc
 .DS_Store
+Thumbs.db
+desktop.ini
 .env.local
 .env.development.local
 .env.test.local
@@ -25,4 +27,4 @@ yarn-debug.log*
 yarn-error.log*
 __pycache__/
 *.pyc
-
+.venv/
