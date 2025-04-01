@@ -1,0 +1,17 @@
+.footer {
+  margin-top: auto;
+  color: var(--colorPrimaryDarkest);
+  font-size: 0.8rem;
+}
+.footer a {
+  color: inherit;
+}
+.footer a:hover {
+  color: var(--colorSecondary);
+}
+.footer p {
+  margin-top: 0.2rem;
+}
+.footer p:first-child {
+  margin-bottom: 0rem;
+}

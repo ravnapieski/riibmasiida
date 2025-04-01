@@ -1,0 +1,34 @@
+/* src/components/Header.css */
+
+.title {
+  color: var(--colorPrimary);
+  font-size: var(--margin-xxxl);
+  margin: var(--margin-s);
+}
+
+.input-field {
+  padding: var(--margin-xs);
+  width: 17rem;
+  margin-bottom: var(--margin-l);
+  border-radius: var(--margin-l);
+  border: 0.1rem solid #ccc;
+  color: black;
+  font-size: 1rem;
+}
+
+.button {
+  padding: var(--margin-xs);
+  cursor: pointer;
+  background-color: var(--colorPrimary);
+  color: var(--colorBg);
+  border: none;
+  border-radius: var(--margin-l);
+  font-size: var(--margin-m);
+  margin: var(--margin-xs);
+  transition: transform 0.1s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--colorSecondary);
+  transform: scale(1.1);
+}

@@ -5,7 +5,7 @@ html {
 :root {
   --colorPrimary: #ff00c8;
   --colorPrimaryDarker: #da00ab;
-  --colorPrimaryEvenDarker: #e500b0;
+  --colorPrimaryDarkest: #e500b0;
   --colorSecondary: #00ff55;
 
   --colorBg: #222222;
@@ -25,41 +25,10 @@ body {
   color: var(--colorPrimary);
 }
 .app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-top: var(--margin-xxl);
-}
-
-.title {
-  color: var(--colorPrimary);
-  font-size: var(--margin-xxxl);
-  margin: var(--margin-s);
-}
-
-.input-field {
-  padding: var(--margin-xs);
-  width: 17rem;
-  margin-bottom: var(--margin-l);
-  border-radius: var(--margin-l);
-  border: 0.1rem solid #ccc;
-  color: black;
-  font-size: 1rem;
-}
-
-.button {
-  padding: var(--margin-xs);
-  cursor: pointer;
-  background-color: var(--colorPrimary);
-  color: var(--colorBg);
-  border: none;
-  border-radius: var(--margin-l);
-  font-size: var(--margin-m);
-  margin: var(--margin-xs);
-  transition: transform 0.1s ease-in-out;
-}
-
-.button:hover {
-  background-color: var(--colorSecondary);
-  transform: scale(1.1);
 }
 
 ul {
@@ -81,7 +50,7 @@ ul {
 
 .category-title {
   margin: 0rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: white;
 }
 
@@ -95,8 +64,8 @@ ul {
 }
 
 .rhyme-item {
-  font-size: 1rem;
-  color: var(--colorPrimaryEvenDarker);
+  font-size: 1.2rem;
+  color: var(--colorPrimaryDarkest);
   padding: 0.5rem;
   background-color: rgba(195, 0, 255, 0.1);
   border-radius: 0.5rem;

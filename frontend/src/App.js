@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const [word, setWord] = useState('');
@@ -38,19 +40,7 @@ function App() {
 
   return (
     <div className='app-container'>
-      <h1 className='title'>RiibmaSiida</h1>
-      <input
-        type='text'
-        value={word}
-        onChange={(e) => setWord(e.target.value)}
-        onKeyDown={handleKeyPress}
-        placeholder='Čuokko sáni dása'
-        className='input-field'
-      />
-      <button onClick={() => fetchRhymes(word)} className='button'>
-        Oza
-      </button>
-
+      <Header fetchRhymes={fetchRhymes} />
       {/* render categories */}
       {Object.keys(rhymesByCategory).length > 0 && (
         <div className='categories-container'>
@@ -75,6 +65,7 @@ function App() {
             ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 }
