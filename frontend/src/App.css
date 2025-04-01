@@ -1,0 +1,110 @@
+html {
+  font-size: 16px; /* 1rem = 16px, 2rem = 32px */
+}
+
+:root {
+  --colorPrimary: #ff00c8;
+  --colorPrimaryDarker: #da00ab;
+  --colorPrimaryEvenDarker: #e500b0;
+  --colorSecondary: #00ff55;
+
+  --colorBg: #222222;
+
+  --margin-xxs: 0.25rem;
+  --margin-xs: 0.5rem;
+  --margin-s: 0.75rem;
+  --margin-m: 1rem;
+  --margin-l: 1.25rem;
+  --margin-xl: 1.75rem;
+  --margin-xxl: 2.5rem;
+  --margin-xxxl: 3.75rem;
+}
+
+body {
+  background-color: var(--colorBg);
+  color: var(--colorPrimary);
+}
+.app-container {
+  text-align: center;
+  margin-top: var(--margin-xxl);
+}
+
+.title {
+  color: var(--colorPrimary);
+  font-size: var(--margin-xxxl);
+  margin: var(--margin-s);
+}
+
+.input-field {
+  padding: var(--margin-xs);
+  width: 17rem;
+  margin-bottom: var(--margin-l);
+  border-radius: var(--margin-l);
+  border: 0.1rem solid #ccc;
+  color: black;
+  font-size: 1rem;
+}
+
+.button {
+  padding: var(--margin-xs);
+  cursor: pointer;
+  background-color: var(--colorPrimary);
+  color: var(--colorBg);
+  border: none;
+  border-radius: var(--margin-l);
+  font-size: var(--margin-m);
+  margin: var(--margin-xs);
+  transition: transform 0.1s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--colorSecondary);
+  transform: scale(1.1);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-container {
+  padding: 0rem 10vw;
+  border: 1rem;
+  border-radius: 0.8rem;
+  border-radius: 0;
+  background-color: var(--colorBg);
+}
+
+.category-title {
+  margin: 0rem;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.rhymes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.rhyme-item {
+  font-size: 1rem;
+  color: var(--colorPrimaryEvenDarker);
+  padding: 0.5rem;
+  background-color: rgba(195, 0, 255, 0.1);
+  border-radius: 0.5rem;
+
+  transition: transform 0.2s ease-in-out;
+}
+.rhyme-item:hover {
+  background-color: var(--colorSecondary);
+  transform: scale(1.2);
+  color: var(--colorBg);
+}
