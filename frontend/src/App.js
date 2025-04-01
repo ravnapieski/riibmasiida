@@ -6,9 +6,11 @@ function App() {
   const [word, setWord] = useState('');
   const [rhymesByCategory, setRhymesByCategory] = useState({});
 
-  const fetchRhymes = async () => {
+  const fetchRhymes = async (searchWord) => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/rhyme/${word}`);
+      const response = await axios.get(
+        `http://127.0.0.1:8000/rhyme/${searchWord}`
+      );
       setRhymesByCategory(response.data.rhymes);
     } catch (error) {
       console.error('Error fetching rhymes:', error);
@@ -17,8 +19,21 @@ function App() {
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      fetchRhymes();
+      fetchRhymes(word);
     }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant',
+    });
+  }
+
+  const handleRhymeClick = (clickedWord) => {
+    setWord(clickedWord);
+    fetchRhymes(clickedWord);
+    scrollToTop();
   };
 
   return (
@@ -29,10 +44,10 @@ function App() {
         value={word}
         onChange={(e) => setWord(e.target.value)}
         onKeyDown={handleKeyPress}
-        placeholder='Enter a word'
+        placeholder='Čuokko sáni dása'
         className='input-field'
       />
-      <button onClick={fetchRhymes} className='button'>
+      <button onClick={() => fetchRhymes(word)} className='button'>
         Oza
       </button>
 
@@ -47,13 +62,12 @@ function App() {
                 <ul className='rhymes-list'>
                   {rhymesByCategory[category].map((rhyme, index) => (
                     <li key={index} className='rhyme-item'>
-                      <a
-                        href={`https://satni.org/${encodeURIComponent(rhyme)}`}
-                        target='_blank'
-                        rel='noopener noreferrer'
+                      <button
+                        onClick={() => handleRhymeClick(rhyme)}
+                        className='rhyme-link'
                       >
                         {rhyme}
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
