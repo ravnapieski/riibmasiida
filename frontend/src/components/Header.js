@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-const Header = ({ fetchRhymes }) => {
-  const [word, setWord] = useState('');
+const Header = ({ word, fetchRhymes }) => {
+  // keeps track of input's value locally
+  const [inputValue, setInputValue] = useState(word);
+
+  // Update inputValue when word changes
+  React.useEffect(() => {
+    setInputValue(word);
+  }, [word]);
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      fetchRhymes(word);
+      fetchRhymes(inputValue);
     }
   };
 
@@ -15,13 +21,13 @@ const Header = ({ fetchRhymes }) => {
       <h1 className='title'>RiibmaSiida</h1>
       <input
         type='text'
-        value={word}
-        onChange={(e) => setWord(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyPress}
         placeholder='Čuokko sáni dása'
         className='input-field'
       />
-      <button onClick={() => fetchRhymes(word)} className='button'>
+      <button onClick={() => fetchRhymes(inputValue)} className='button'>
         Oza
       </button>
     </header>

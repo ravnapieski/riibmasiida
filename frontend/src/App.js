@@ -40,7 +40,8 @@ function App() {
 
   return (
     <div className='app-container'>
-      <Header fetchRhymes={fetchRhymes} />
+      {/* Pass word state to Header */}
+      <Header word={word} fetchRhymes={fetchRhymes} />
       {/* render categories */}
       {Object.keys(rhymesByCategory).length > 0 && (
         <div className='categories-container'>
