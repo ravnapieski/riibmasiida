@@ -88,8 +88,7 @@ def matches_rhyme_rule(input_word, candidate):
 def find_rhymesss(word, word_list):
     """Finds words that rhyme with the given word based on the new rhyme rule."""
     
-    #rhymes = [w for w in word_list if matches_rhyme_rule(word, w)]
-
+    word = word.lower()
     rhymes_categorized = {}
     
     for w in word_list:
