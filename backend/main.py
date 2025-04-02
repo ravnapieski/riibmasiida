@@ -6,15 +6,20 @@ from fastapi.middleware.cors import CORSMiddleware
 import rhyme_script # add "from . " prefix for local development
 from fastapi.staticfiles import StaticFiles
 
+# Load environment variables
+load_dotenv(find_dotenv())
+
 app = FastAPI()
 
 # serve static files
 # app.mount("/static", StaticFiles(directory="frontend/public"), name="static")
 
+ALLOWED_ORIGIN = os.getenv("REACT_APP_BACKEND_URL", "*")
+
 # Allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[ALLOWED_ORIGIN],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,7 +27,6 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
-    load_dotenv(find_dotenv())
     wordlist_path = os.getenv("SANIT_FILE_PATH")
     # word list loaded once in app.state during startup, meaning it's
     # locked in, not floating around like a beta global var.
