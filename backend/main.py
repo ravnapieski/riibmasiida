@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
 # serve static files
-app.mount("/static", StaticFiles(directory="frontend/public"), name="static")
+# app.mount("/static", StaticFiles(directory="frontend/public"), name="static")
 
 # Allow requests from React frontend
 app.add_middleware(
