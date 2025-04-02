@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from . import rhyme_script
+import rhyme_script # add "from . " prefix for local development
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
