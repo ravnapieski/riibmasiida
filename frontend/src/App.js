@@ -15,8 +15,6 @@ function App() {
           process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'
         }/rhyme/${searchWord}`
       );
-      console.log(response.data);
-      console.log(response.data.rhymes);
       setRhymesByCategory(response.data.rhymes || {});
     } catch (error) {
       console.error('Error fetching rhymes:', error);
