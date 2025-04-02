@@ -24,27 +24,35 @@ app.add_middleware(
 async def startup_event():
     load_dotenv(find_dotenv())
     wordlist_path = os.getenv("SANIT_FILE_PATH")
+    print(wordlist_path)
     # word list loaded once in app.state during startup, meaning it's
     # locked in, not floating around like a beta global var.
     # + built-in app lifecycle management
     try:
         app.state.word_list = load_wordlist(wordlist_path)  # Store word_list in state
     except Exception as e:
+        print(e)
         return {"error": str(e)}
     
 def load_wordlist(wordlist_path):
     try:
         with open(wordlist_path, "r") as file:
             word_list = file.readlines()
+            print(word_list)
         return [word.strip() for word in word_list]
-    except FileNotFoundError:
+    except FileNotFoundError as e:
+        print(e)
         raise Exception(f"Word list file not found at {wordlist_path}")
 
 @app.get("/rhyme/{word}")
 async def get_rhyme(word: str):
     try:
         rhymes = rhyme_script.find_rhymesss(word, app.state.word_list)  # Access word_list from state
-        return {"word": word, "rhymes": rhymes}
+        result = {"word": word, "rhymes": rhymes or {}}
+        print("Returning:", result)
+        return result
     except Exception as e:
-        return {"error": str(e)}
+        error_response = {"error": str(e), "rhymes": {}}
+        print("Error:", error_response)
+        return error_response
 
