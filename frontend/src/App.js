@@ -11,17 +11,13 @@ function App() {
   const fetchRhymes = async (searchWord) => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/rhyme/${searchWord}`
+        `${
+          process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000'
+        }/rhyme/${searchWord}`
       );
       setRhymesByCategory(response.data.rhymes);
     } catch (error) {
       console.error('Error fetching rhymes:', error);
-    }
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      fetchRhymes(word);
     }
   };
 
