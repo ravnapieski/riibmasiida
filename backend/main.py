@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from . import get_rhymes # add "from . " prefix for local development
+import get_rhymes # add "from . " prefix for local development
 from fastapi.staticfiles import StaticFiles
 
 # Load environment variables
@@ -19,7 +19,7 @@ ALLOWED_ORIGIN = os.getenv("REACT_APP_FRONTEND_URL", "*")
 # Allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # ALLOWED_ORIGIN / "*"
+    allow_origins=[ALLOWED_ORIGIN], # ALLOWED_ORIGIN / "*"
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
