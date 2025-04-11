@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css';
 
-const Header = ({ word, fetchRhymes }) => {
+const Header = ({ word, fetchRhymes, rhymeType, setRhymeType }) => {
   // keeps track of input's value locally
   const [inputValue, setInputValue] = useState(word);
 
@@ -30,6 +30,14 @@ const Header = ({ word, fetchRhymes }) => {
       <button onClick={() => fetchRhymes(inputValue)} className='button'>
         Oza
       </button>
+      <select
+        className='rhyme-type-select'
+        value={rhymeType}
+        onChange={(e) => setRhymeType(e.target.value)}
+      >
+        <option value='vowel'>assonánsa</option>
+        <option value='consonant'>konsonánsa</option>
+      </select>
     </header>
   );
 };

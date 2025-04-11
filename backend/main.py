@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import rhyme_script # add "from . " prefix for local development
+from . import get_rhymes # add "from . " prefix for local development
 from fastapi.staticfiles import StaticFiles
 
 # Load environment variables
@@ -14,12 +14,12 @@ app = FastAPI()
 # serve static files
 # app.mount("/static", StaticFiles(directory="frontend/public"), name="static")
 
-ALLOWED_ORIGIN = os.getenv("REACT_APP_BACKEND_URL", "*")
+ALLOWED_ORIGIN = os.getenv("REACT_APP_FRONTEND_URL", "*")
 
 # Allow requests from React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[ALLOWED_ORIGIN],
+    allow_origins=["*"], # ALLOWED_ORIGIN / "*"
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -46,10 +46,14 @@ def load_wordlist(wordlist_path):
         print(e)
         raise Exception(f"Word list file not found at {wordlist_path}")
 
-@app.get("/rhyme/{word}")
-async def get_rhyme(word: str):
+@app.get("/rhyme/{word}/{type}")
+async def fetch_rhymes(word: str, type: str):
     try:
-        rhymes = rhyme_script.find_rhymesss(word, app.state.word_list)  # Access word_list from state
+        # Access word_list from state
+        if type == "vowel":
+            rhymes = get_rhymes.find_vowel_rhymes(word, app.state.word_list)
+        elif type == "consonant":
+            rhymes = get_rhymes.find_consonance_rhymes(word, app.state.word_list)
         result = {"word": word, "rhymes": rhymes or {}}
         return result
     except Exception as e:

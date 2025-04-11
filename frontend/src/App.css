@@ -7,6 +7,7 @@ html {
   --colorPrimaryDarker: #da00ab;
   --colorPrimaryDarkest: #e500b0;
   --colorSecondary: #00ff55;
+  --colorTherdiary: rgba(195, 0, 255, 0.1);
 
   --colorBg: #222222;
 
@@ -38,56 +39,4 @@ body {
 
 ul {
   list-style-type: none;
-}
-
-.categories-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.category-container {
-  padding: 0rem 10vw;
-  border: 1rem;
-  border-radius: 0.8rem;
-  border-radius: 0;
-  background-color: var(--colorBg);
-}
-
-.category-title {
-  margin: 0rem;
-  font-size: 2rem;
-  color: white;
-}
-
-.rhymes-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-  list-style-type: none;
-  justify-content: center;
-}
-
-.rhyme-item {
-  font-size: 1.2rem;
-  color: var(--colorPrimaryDarkest);
-  padding: 0.5rem;
-  background-color: rgba(195, 0, 255, 0.1);
-  border-radius: 0.5rem;
-
-  transition: transform 0.2s ease-in-out;
-}
-.rhyme-item:hover {
-  background-color: var(--colorSecondary);
-  transform: scale(1.2);
-  color: var(--colorBg);
-}
-
-.rhyme-item a {
-  color: inherit;
-  text-decoration: none;
-}
-button.rhyme-link {
-  all: unset;
-  cursor: pointer;
 }

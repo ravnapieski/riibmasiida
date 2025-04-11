@@ -1,0 +1,87 @@
+.categories-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-container {
+  padding: 0rem 10vw;
+  border: 1rem;
+  border-radius: 0.8rem;
+  border-radius: 0;
+  background-color: var(--colorBg);
+}
+
+.category-title {
+  margin: 0rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.rhymes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.rhyme-item {
+  font-size: 1.2rem;
+  color: var(--colorPrimaryDarkest);
+  padding: 0.5rem;
+  background-color: var(--colorTherdiary);
+  border-radius: 0.5rem;
+
+  transition: transform 0.2s ease-in-out;
+}
+.rhyme-item:hover {
+  background-color: var(--colorSecondary);
+  transform: scale(1.2);
+  color: var(--colorBg);
+}
+
+.rhyme-item a {
+  color: inherit;
+  text-decoration: none;
+}
+button.rhyme-link {
+  all: unset;
+  cursor: pointer;
+}
+
+/* Fixed vertical bar for additional category keys */
+.vertical-bar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--colorTherdiary);
+  padding: var(--margin-s);
+  border-radius: 1rem 0 0 1rem;
+  z-index: 1000;
+}
+
+/* Buttons in the vertical bar */
+
+.vertical-bar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--colorPrimaryDarkest);
+  background: transparent;
+  margin: var(--margin-s) 0;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.vertical-bar button:hover {
+  color: var(--colorSecondary);
+  transform: scale(1.5);
+}
+
+.info-message {
+  font-style: italic;
+}

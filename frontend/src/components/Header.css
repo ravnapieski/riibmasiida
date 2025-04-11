@@ -8,7 +8,7 @@
 
 .input-field {
   padding: var(--margin-xs);
-  width: 17rem;
+  width: 13rem;
   margin-bottom: var(--margin-l);
   border-radius: var(--margin-l);
   border: 0.1rem solid #ccc;
@@ -31,4 +31,13 @@
 .button:hover {
   background-color: var(--colorSecondary);
   transform: scale(1.1);
+}
+
+.rhyme-type-select {
+  font-size: var(--margin-m);
+  padding: var(--margin-xs);
+  margin: var(--margin-xxs);
+  border-radius: var(--margin-l);
+  border: 0.1rem solid #ccc;
+  width: 1rem;
 }
